@@ -1,0 +1,22 @@
+[package]
+name = "fndsa-alt"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of c-fn-dsa-alt (FN-DSA / FIPS 206 draft, RAM-efficient variant): verification path"
+license = "Unlicense"
+publish = false
+
+[lib]
+name = "fndsa"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+debug = false
+
+[profile.bench]
+inherits = "release"
